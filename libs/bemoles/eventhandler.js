@@ -109,7 +109,7 @@ function almacenBemoles(midiFile) {
                 	        var notaOn=almaceneventos[i].noteNumber;
                 	        buscaNoteOff(notaOn, i);
                              
-                	         almacen.push(obnota);
+                	        
                               
                           break;                	     	
                     case 'noteOff':
@@ -146,7 +146,7 @@ function almacenBemoles(midiFile) {
                                 	//console.log("noteoff"+j);
                                 	      if(almaceneventos[indice].noteNumber==notaOn){
                                           obnota= getObNota(almaceneventos[indice]);     
-                                         
+                                          almacen.push(obnota);
 
                                          }
                                          break;
