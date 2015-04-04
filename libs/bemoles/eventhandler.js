@@ -104,7 +104,7 @@ function almacenBemoles(midiFile) {
       
                 switch(evento.subtype){                 
                   case 'noteOn':
-                          console.log("noteOn"+i);
+                         // console.log("noteOn"+i);
                           var notaon=almaceneventos[i].noteNumber;
                           deltaOff= buscaNoteOff(notaon, i);  //buscamos la nota correspondiente
                           obnota= getObNota(almaceneventos[i], deltaOff); //conseguimos el objeto                                               
@@ -140,7 +140,7 @@ function almacenBemoles(midiFile) {
                                       
                                            if(almaceneventos[indice].deltaTime!==bigDelta){
                                            addDelta(almaceneventos[indice].deltaTime);
-                                            console.log("EnviaD"+almaceneventos[indice].deltaTime);
+                                           // console.log("EnviaD"+almaceneventos[indice].deltaTime);
                                            
                                            //bigDelta=almaceneventos[indice].deltaTime;
                                            //deltas.push(bigDelta);
@@ -149,7 +149,7 @@ function almacenBemoles(midiFile) {
                      
                                           
                                            
-                    //   
+                    
                                         return almaceneventos[indice].deltaTime;
 
                            }
@@ -224,7 +224,7 @@ function almacenBemoles(midiFile) {
         if(delta==bigDelta/128){//garrapatea
            figura = 128;
         }
-    	console.log("fig"+ figura+"del"+delta+"big"+bigDelta);
+   // 	console.log("fig"+ figura+"del"+delta+"big"+bigDelta);
 
 
         function getKeys(midinumber){
@@ -254,7 +254,7 @@ function almacenBemoles(midiFile) {
         //keys//alturanota
 
 
-   var object={nombre:"nota", keys:nota, alteracion:alteracion, duration:figura, stem_direction:direccionplica};
+   var object={nombre:"nota", keys:nota, alteracion:alteracion, duration:figura.toString(), stem_direction:direccionplica};
    almacen.push(object);
    //return object;
    //console.log("obnota "+obnota);
