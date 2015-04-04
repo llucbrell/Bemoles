@@ -76,8 +76,9 @@ function cargaBemoles(file, lugar) {
           var mDiv= document.getElementById(lugar);
           nuevaPartitura(id, mDiv);
           drawBemoles(almacenb, id);
-        
         })
+      
+
       
 
        if(FileReader){
