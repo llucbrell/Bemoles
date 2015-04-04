@@ -200,25 +200,25 @@ function almacenBemoles(midiFile) {
 
 
     	//medida//figura
-    	if(delta==bigDelta){//redonda
+    	if(deltaOff==bigDelta){//redonda
            figura = 1;
     	}
-        if(delta==bigDelta/2){//blanca
+        if(deltaOff==bigDelta/2){//blanca
            figura = 2;
         }
-        if(delta==bigDelta/4){//negra
+        if(deltaOff==bigDelta/4){//negra
            figura = 4;             
         }
-        if(delta==bigDelta/8){//corchea
+        if(deltaOff==bigDelta/8){//corchea
            figura = 8; 
         }
-        if(delta==bigDelta/16){//semi
+        if(deltaOff==bigDelta/16){//semi
            figura = 16;
         }
-        if(delta==bigDelta/32){//fusa
+        if(deltaOff==bigDelta/32){//fusa
            figura = 32;
         }
-        if(delta==bigDelta/64){//semif
+        if(deltaOff==bigDelta/64){//semif
           figura =  64;
         }
         if(delta==bigDelta/128){//garrapatea
