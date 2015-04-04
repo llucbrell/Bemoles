@@ -235,7 +235,7 @@ function almacenBemoles(midiFile) {
 
         var arraynombres=["c","#","d","#","e","f","#","g","#","a","#","b"];
          //recorremos el array de notas hasta encontrar el nombre
-        var retornable= arraynombres[notaname]+"/"+notatesitura;  
+        var retornable= arraynombres[notaname]+"/"+(notatesitura-1);//added -1 for a correct format in the canvas  
         if (arraynombres[notaname]=="#"){
         	//usar if else para cambiar a bemoles en función de los 
         	//metadatos introducidos en el midi... si la armadura es 
