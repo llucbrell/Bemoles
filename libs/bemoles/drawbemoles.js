@@ -52,7 +52,6 @@ function seleccionaAccion(objeto, id){
         switch (objeto.nombre) {
       case 'nota':
         //pintamos
-        
         pintaNota(objeto, id);
         break;
       case 'ritmo':

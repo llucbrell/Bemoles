@@ -235,18 +235,24 @@ function almacenBemoles(midiFile) {
 
         var arraynombres=["c","#","d","#","e","f","#","g","#","a","#","b"];
          //recorremos el array de notas hasta encontrar el nombre
-        var retornable= arraynombres[notaname]+"/"+(notatesitura-1);//added -1 for a correct format in the canvas  
+        var retornable= arraynombres[notaname]+"/"+(notatesitura-2);//added -1 for a correct format in the canvas  
         if (arraynombres[notaname]=="#"){
         	//usar if else para cambiar a bemoles en función de los 
         	//metadatos introducidos en el midi... si la armadura es 
         	// con bemoles se usarán estos
+          retornable= "#"+ arraynombres[notaname-1]+"/"+(notatesitura-2);
+
+
         	alteracion="#";
+         
+          console.log("retornable"+ retornable);
+           return retornable;
         }
         else{alteracion="natural";}
-
+          console.log("retornable"+ retornable);
         return retornable;
         }
-        function getPlica(midinumber){
+function getPlica(midinumber){
         	var Bnote=58;
             if(midinumber<Bnote){return 1;}
             else{return -1;}
@@ -263,7 +269,7 @@ function almacenBemoles(midiFile) {
 
 
 creaBemoles(almaceneventos);
-
+console.log("big"+bigDelta);
 return almacen;
 }
 

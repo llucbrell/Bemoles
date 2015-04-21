@@ -129,11 +129,11 @@ else{
 
 //si es una nota mayor de corchea
 else{
-  //si está clicakdo el checbox de las alteraciones
-
-//si está clicakdo el checbox de las alteraciones
+  //si esta alterada la nota
 
   if(nota[0]==="#"){
+     nota=nota[1]+nota[2]+nota[3];
+     accidenteSelected="#";
       dibujaNotaAlterada(nota, figura, accidenteSelected, direccionplica);
     }
    else{ 
