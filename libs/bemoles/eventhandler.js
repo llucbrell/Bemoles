@@ -39,7 +39,7 @@ function almacenBemoles(midiFile) {
 	var almaceneventos = [];
 	var almacen=[];
 	var obnota;
-  var deltas= [0];
+  var deltas= [];
 	
 	for (var i = 0; i < midiFile.tracks.length; i++) {
 		for (var j=0; j<midiFile.tracks[i].length; j++){
@@ -104,9 +104,12 @@ function almacenBemoles(midiFile) {
       
                 switch(evento.subtype){                 
                   case 'noteOn':
-                         // console.log("noteOn"+i);
+                          
                           var notaon=almaceneventos[i].noteNumber;
                           deltaOff= buscaNoteOff(notaon, i);  //buscamos la nota correspondiente
+                          
+
+                          console.log("deltaOff"+deltaOff);
                           obnota= getObNota(almaceneventos[i], deltaOff); //conseguimos el objeto                                               
                           //almacen.push(obnota); //lo almacenamos                            
                           break;                        
@@ -138,7 +141,7 @@ function almacenBemoles(midiFile) {
 
                                 if (almaceneventos[indice].subtype=="noteOff"){
                                       
-                                           if(almaceneventos[indice].deltaTime!==bigDelta){
+                                           if(almaceneventos[indice].noteNumber== notaOn){
                                            addDelta(almaceneventos[indice].deltaTime);
                                            // console.log("EnviaD"+almaceneventos[indice].deltaTime);
                                            
@@ -163,65 +166,43 @@ function almacenBemoles(midiFile) {
 
 
     function addDelta(nuevodelta){
-
-      var igual=false;
-      for (var r=0; r<deltas.length; r++){
-        if(deltas[r]==deltas[deltas.length-1]){
-             if(nuevodelta==deltas[r]){igual=true;}
-             if(igual==false){
-              deltas.push(nuevodelta);
-              getBigDelta(nuevodelta);
-              
-            }
-        }
-        else{
-             if(deltas[r]==nuevodelta){
-              igual==true;
-              break;
-            }
-        }
-      }
-    }
-
-   function getBigDelta(nuevodelta){
-    
-         if(nuevodelta>bigDelta){bigDelta=nuevodelta;}
-   }
-
+  
+        deltas.push(nuevodelta);
+      }       
 
 
 
     function getObNota(evento, deltaOff){
     	var delta= evento.deltaTime;
-    	var figura= deltaOff;
+    	
     	var nota=getKeys(evento.noteNumber);
     	var alteracion;
     	var direccionplica=getPlica(evento.noteNumber);
 
 
     	//medida//figura
-    	if(deltaOff==bigDelta){//redonda
+     	if(deltaOff==80){//redonda
            figura = 1;
     	}
-        if(deltaOff==bigDelta/2){//blanca
+        if(deltaOff==40){//blanca
            figura = 2;
         }
-        if(deltaOff==bigDelta/4){//negra
+        if(deltaOff==20){//negra
            figura = 4;             
         }
-        if(deltaOff==bigDelta/8){//corchea
+        if(deltaOff==10){//corchea
            figura = 8; 
         }
-        if(deltaOff==bigDelta/16){//semi
+        if(deltaOff==8){//semi
            figura = 16;
         }
-        if(deltaOff==bigDelta/32){//fusa
+        if(deltaOff==4){//fusa
            figura = 32;
         }
-        if(deltaOff==bigDelta/64){//semif
+        if(deltaOff==2){//semif
           figura =  64;
         }
-        if(delta==bigDelta/128){//garrapatea
+        if(deltaOff==1){//garrapatea
            figura = 128;
         }
    // 	console.log("fig"+ figura+"del"+delta+"big"+bigDelta);
@@ -267,7 +248,7 @@ function getPlica(midinumber){
 
     }
 
-
+//orden lógico de procesado del programa
 creaBemoles(almaceneventos);
 console.log("big"+bigDelta);
 return almacen;

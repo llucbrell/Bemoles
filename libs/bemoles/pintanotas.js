@@ -64,7 +64,7 @@ var stavesel = new Vex.Flow.Stave(valinivexstave,valaltvexstave, valfinvexstave)
 figura=nota.duration;
 nota=nota.keys;
 
-
+/*
 //si son corcheas o mas pequeñas
 if (figura>=8){
 
@@ -128,7 +128,7 @@ else{
 
 
 //si es una nota mayor de corchea
-else{
+else{*/
   //si esta alterada la nota
 
   if(nota[0]==="#"){
@@ -140,7 +140,7 @@ else{
       dibujaNota(nota, figura, direccionplica);
 //llamamos a la función de pintado de notas
     }
-}
+//}
 
 
 
@@ -148,7 +148,7 @@ else{
 ////////////////////////////////////////////////////////////////////
 
 
-
+/*
 
 //no deja un buen formato al mezclar notas alteradas y notas sin alterar
 //de momento lo dejo así, xq mientras sean pocas notas, las dibuja bien
@@ -316,7 +316,7 @@ if (numeronotas===16){
 }
 }
 
-
+*/
 
 //////////////////////////////////////////////////////////////////
 
