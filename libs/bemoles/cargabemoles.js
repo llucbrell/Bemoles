@@ -63,6 +63,21 @@ function loadRemote(path, callback) {
         fetch.send();
       }
       
+function garrapatea(file, lugar){
+          midiFile = MidiFile(file);
+          almacenb= almacenBemoles(midiFile);
+          //control del tamaño del vex/vex stave size control
+          valinivexstave=-1;
+          valaltvexstave=20;
+          valfinvexstave=39;
+          var id= "partitura"+lugar;
+          var numerocompas=0;
+          var mDiv= document.getElementById(lugar);
+          nuevaPartitura(id, mDiv);
+          drawBemoles(almacenb, id);
+
+}
+
 function cargaBemoles(file, lugar) {
         loadRemote(file, function(data) {
           midiFile = MidiFile(data);
