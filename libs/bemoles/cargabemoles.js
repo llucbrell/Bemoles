@@ -64,6 +64,8 @@ function loadRemote(path, callback) {
       }
       
 function garrapatea(file, lugar){
+        
+ aJasmid(file, lugar);/*
           midiFile = MidiFile(file);
           almacenb= almacenBemoles(midiFile);
           //control del tamaño del vex/vex stave size control
@@ -75,10 +77,13 @@ function garrapatea(file, lugar){
           var mDiv= document.getElementById(lugar);
           nuevaPartitura(id, mDiv);
           drawBemoles(almacenb, id);
-
+*/
 }
 
 function cargaBemoles(file, lugar) {
+        
+      // aJasmid(file, lugar);
+
         loadRemote(file, function(data) {
           midiFile = MidiFile(data);
           almacenb= almacenBemoles(midiFile);
@@ -130,9 +135,34 @@ function cargaBemoles(file, lugar) {
           }
         }, false);
       }
+   }   
 
-    }
+    
 
+
+
+    function aJasmid(file, lugar){
+  var reader= new FileReader();
+      //use reader to parse the blob to the jasmid library
+           reader.readAsBinaryString(file);
+           
+          //reader function onload //when all file its loaded
+          //add control load in the future
+   reader.onload = function(e){
+    var rawData = reader.result;
+         midiFile = MidiFile(data);
+          almacenb= almacenBemoles(midiFile);
+          //control del tamaño del vex/vex stave size control
+          valinivexstave=-1;
+          valaltvexstave=20;
+          valfinvexstave=39;
+          var id= "partitura"+lugar;
+          var numerocompas=0;
+          var mDiv= document.getElementById(lugar);
+          nuevaPartitura(id, mDiv);
+          drawBemoles(almacenb, id);
+            }
+}
 //////////////////////////////////////////
 //END
 //////////////////////////////////////////

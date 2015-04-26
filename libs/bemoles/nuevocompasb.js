@@ -1,19 +1,20 @@
 //GENERADOR DE COMPASES POR BOTÓN/ stave button creator
 function nuevaPartitura(id, mDiv){
-    mDiv.innerHTML="<div id=\""+id+"\" class= \"partituras\" onclick=\"clickeoEnPartitura(event, this.id)\"></div>";
+
+ mDiv.innerHTML="<div id=\""+id+"\" class= \"partituras\" onclick=\"clickeoEnPartitura(event, this.id)\"></div>";
 }
 
 
 function nuevoCanvas(numerocompas, id){
 //	var partitura= document.getElementById(id);
  //partitura.innerHTML= partitura+ "<canvas width=\"38\" height=\"150\" id=\"c" +numerocompas +"\" class=\"compas\" ></canvas>";
-   $("#"+id).append("<canvas width=\"38\" height=\"150\" id=\"c" +numerocompas +"\" class=\"compas\" ></canvas>");   
+   $("#"+id).append("<canvas width=\"38\" height=\"150\" id=\""+id+"c" +numerocompas +"\" class=\"compas\" ></canvas>");   
    //retiraremos  el height y width para darle formato desde fuera
     
 }
   
-function nuevoCompas(id){
-	 var idcompas= "c"+id;
+function nuevoCompas(i, id){
+	 var idcompas= id+"c"+i;
     
    
 

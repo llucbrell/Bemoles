@@ -35,7 +35,7 @@ THE SOFTWARE.
 
 function pintaNota(nota, id){
 
-var compasid= "c"+id;
+var compasid= id;
 var nota;
 var figura; 
 //var alteracionesChecked;

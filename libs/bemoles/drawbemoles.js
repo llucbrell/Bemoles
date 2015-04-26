@@ -39,8 +39,8 @@ function drawBemoles(almacen, id){
      for(var i=0; i<almacen.length; i++){
       //pintaCompas(i, id);
       nuevoCanvas(i, id);
-      nuevoCompas(i)  
-      seleccionaAccion(almacen[i], i);  
+      nuevoCompas(i, id);  
+      seleccionaAccion(almacen[i], i, id);  
 
     
    }
@@ -48,11 +48,12 @@ function drawBemoles(almacen, id){
 }
 
 
-function seleccionaAccion(objeto, id){
+function seleccionaAccion(objeto, i, id){
+  var nuevoid= id+"c"+i;
         switch (objeto.nombre) {
       case 'nota':
         //pintamos
-        pintaNota(objeto, id);
+        pintaNota(objeto, nuevoid);
         break;
       case 'ritmo':
       //pintamos
