@@ -34,10 +34,17 @@ THE SOFTWARE.
 
 */
 
-function clickeoEnPartitura(id){
+function clickeoEnPartitura(event, id, i){
 
+function supportStorage() {
+  try {
+    return 'sessionStorage' in window && window['sessionStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
 
-
+supportStorage();
 //FOR MICROSOFT EXPLORER
 //id.innerHTML="<bgGround" src=midifilePath una vez/>
 
@@ -48,7 +55,15 @@ function clickeoEnPartitura(id){
  //change synth in the future for a better sound
 
 
- replayer = Replayer(midiFile, synth);
+//get the midi object for playing
+console.log(i+"midis");
+var array= JSON.parse(sessionStorage[i+"midis"]);
+
+
+
+
+//console.log(midiForPlay);
+ replayer = Replayer(array, synth);
  audio = AudioPlayer(replayer);
             
 

@@ -1,7 +1,7 @@
 //GENERADOR DE COMPASES POR BOTÓN/ stave button creator
-function nuevaPartitura(id, mDiv){
+function nuevaPartitura(id, mDiv, i){
 
- mDiv.innerHTML="<div id=\""+id+"\" class= \"partituras\" onclick=\"clickeoEnPartitura(event, this.id)\"></div>";
+ mDiv.innerHTML="<div id=\""+id+"\" class= \"partituras\" onclick=\"clickeoEnPartitura(event, this.id,"+i+")\"></div>";
 }
 
 

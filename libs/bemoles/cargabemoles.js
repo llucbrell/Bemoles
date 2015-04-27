@@ -63,43 +63,46 @@ function loadRemote(path, callback) {
         fetch.send();
       }
       
-function garrapatea(file, lugar){
-        
- aJasmid(file, lugar);/*
-          midiFile = MidiFile(file);
-          almacenb= almacenBemoles(midiFile);
-          //control del tamaño del vex/vex stave size control
-          valinivexstave=-1;
-          valaltvexstave=20;
-          valfinvexstave=39;
-          var id= "partitura"+lugar;
-          var numerocompas=0;
-          var mDiv= document.getElementById(lugar);
-          nuevaPartitura(id, mDiv);
-          drawBemoles(almacenb, id);
-*/
-}
-
-function cargaBemoles(file, lugar) {
-        
-      // aJasmid(file, lugar);
+///////////////////////////////////////////////////////////////
+  //FUNCTION changed and CODED BY llucbrell_Lucas C_Hobbes //
+//////////////////////////////////////////////////////////////
+function midiBemoles(file, lugar, i) {
 
         loadRemote(file, function(data) {
           midiFile = MidiFile(data);
           almacenb= almacenBemoles(midiFile);
-          //control del tamaño del vex/vex stave size control
+          //control del tamaño del vex/vex stave size control         
           valinivexstave=-1;
           valaltvexstave=20;
           valfinvexstave=39;
+          //create a unique partitura object on the DOM
+          var midis=[];
           var id= "partitura"+lugar;
+          var midisession= JSON.stringify(midiFile);
           var numerocompas=0;
           var mDiv= document.getElementById(lugar);
-          nuevaPartitura(id, mDiv);
+           //inicialize sesion storage where is added the midifile
+           if(sessionStorage){
+           //for(var j=0; j<sessionStorage.length; j++) {
+            //midis= JSON.parse(sessionStorage[j+"midis"]);
+            //midis= midis + midiFile;
+
+            var JSONmidis= JSON.stringify(midiFile);
+            sessionStorage[i+"midis"]= (JSONmidis);
+           }
+           else{
+            //if the session storage is not inicialized
+            sessionStorage[i+"midis"]= (midisession);
+           }
+
+          //continue with the drawing of the sheet
+          nuevaPartitura(id, mDiv, i);
           drawBemoles(almacenb, id);
         })
       
-
-      
+///////////////////////////////////////////////////////////
+              //END OF CHANGES//
+//////////////////////////////////////////////////////////      
 
        if(FileReader){
         function cancelEvent(e){
@@ -141,28 +144,6 @@ function cargaBemoles(file, lugar) {
 
 
 
-    function aJasmid(file, lugar){
-  var reader= new FileReader();
-      //use reader to parse the blob to the jasmid library
-           reader.readAsBinaryString(file);
-           
-          //reader function onload //when all file its loaded
-          //add control load in the future
-   reader.onload = function(e){
-    var rawData = reader.result;
-         midiFile = MidiFile(data);
-          almacenb= almacenBemoles(midiFile);
-          //control del tamaño del vex/vex stave size control
-          valinivexstave=-1;
-          valaltvexstave=20;
-          valfinvexstave=39;
-          var id= "partitura"+lugar;
-          var numerocompas=0;
-          var mDiv= document.getElementById(lugar);
-          nuevaPartitura(id, mDiv);
-          drawBemoles(almacenb, id);
-            }
-}
 //////////////////////////////////////////
 //END
 //////////////////////////////////////////
