@@ -88,11 +88,11 @@ function midiBemoles(file, lugar, i) {
             //midis= midis + midiFile;
 
             var JSONmidis= JSON.stringify(midiFile);
-            sessionStorage[i+"midis"]= (JSONmidis);
+            sessionStorage[i+"mbemoles"]= (JSONmidis);
            }
            else{
             //if the session storage is not inicialized
-            sessionStorage[i+"midis"]= (midisession);
+            sessionStorage[i+"mbemoles"]= (midisession);
            }
 
           //continue with the drawing of the sheet

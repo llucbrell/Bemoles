@@ -56,8 +56,8 @@ supportStorage();
 
 
 //get the midi object for playing
-console.log(i+"midis");
-var array= JSON.parse(sessionStorage[i+"midis"]);
+//console.log(i+"mbemoles");
+var array= JSON.parse(sessionStorage[i+"mbemoles"]);
 
 
 

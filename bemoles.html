@@ -5,20 +5,19 @@
 <head>
 <meta charset="ASCII">
 
-
 <script src="libs/vexflow-min.js"></script>
 <script src="libs/jquery.js"></script>
-<script src="libs/bemoles/cargabemoles.js"></script>
-<script src="libs/bemoles/leemidi.js"></script>
-<script src="libs/bemoles/eventhandler.js"></script>
-<script src="libs/bemoles/drawbemoles.js"></script>
-<script src="libs/bemoles/nuevocompasb.js"></script>
-<script src="libs/bemoles/pintanotas.js"></script>
-<script src="libs/bemoles/audio.js"></script>
-<script src="libs/bemoles/replayer.js"></script>
-<script src="libs/bemoles/synth.js"></script>
-<script src="libs/bemoles/play.js"></script>
-
+<script src="libs/midibemoles/cargabemoles.js"></script>
+<script src="libs/midibemoles/eventhandler.js"></script>
+<script src="libs/midibemoles/drawbemoles.js"></script>
+<script src="libs/midibemoles/nuevocompasb.js"></script>
+<script src="libs/midibemoles/pintanotas.js"></script>
+<script src="libs/midibemoles/play.js"></script>
+<!--jasmid lib-->
+<script src="libs/audio.js"></script>
+<script src="libs/replayer.js"></script>
+<script src="libs/synth.js"></script>
+<script src="libs/leemidi.js"></script>
 
 
 
@@ -46,29 +45,57 @@ cargaBemoles('prueba6.mid', 'testalterednotes');
 <body>
 <!-- midi tests for bemoles -->
 <!--first test for bemoles/ innsert midi and write only notes -->
-<h3>Test automatic html canvas innsert with Midi</h3>
+<h2>Automatic html canvas innsert with Midi</h2>
+
+<p>Using a simple JavaScript code bemoles can generate sheet music from an standard midi file.</p>
+<p>If you click on the sheet music you can listen it.</p>
+<p>To create it put an HTML tag with some id. Then you can load the sheet passing the path to the midi file, your tag id and an index as a midi array controler.</p>
+<p>For non-developers users only count your midi files, and assign a number for each one in order of appearance in your website. Remember, starting with 0.</p>
+
+<h3>Visual test for figure recognition</h3>
 <div id="testnotas"></div>
 <script type="text/javascript">
-midiBemoles('prueba4.mid', 'testnotas', 0);
+midiBemoles('files/prueba4.mid', 'testnotas', 0);
 </script>
+<h4>JavaScript Code</h4>
+<pre>
+midiBemoles('prueba4.mid', 'testnotas', 0);
+</pre>
+<p>'prueba4.mid'--> it's the path</p>
+<p>'testnotas'--> it's the div id</p>
+<p>0 --> its the first midi file</p>
+
 <!-- insert midi with # notes -->
-<h3>With accidental notes</h3>
+<h3>Visual test for accidental notes recogniton</h3>
 <div id="testalterednotes"></div>
 <script type="text/javascript">
-midiBemoles('prueba6.mid', 'testalterednotes', 1);
+midiBemoles('files/prueba6.mid', 'testalterednotes', 1);
 </script>
+
+<h4>Code</h4>
+<pre>midiBemoles('prueba6.mid', 'testalterednotes', 1);
+</pre>
+
 
 <!--test for bemoles midi links -->
 <h3>Test with links</h3>
-<a href="javascript:void(midiBemoles('prueba4.mid', 'bemollink', 2))">BemolesLink1</a>
-<a href="javascript:void(midiBemoles('prueba2.mid', 'bemollink', 3))">BemolesLink2</a>
-<a href="javascript:void(midiBemoles('prueba5.mid', 'bemollink', 4))">BemolesLink3</a>
+<a href="javascript:void(midiBemoles('files/prueba4.mid', 'bemollink', 2))">BemolesLink1</a>
+<a href="javascript:void(midiBemoles('files/prueba2.mid', 'bemollink', 3))">BemolesLink2</a>
+<a href="javascript:void(midiBemoles('files/prueba5.mid', 'bemollink', 4))">BemolesLink3</a>
 <div id="bemollink"></div>
+
+<h4>Code</h4>
+<pre>inside HTML || a tag || write href="javascript:void(midiBemoles('prueba4.mid', 'bemollink', 2))"
+</pre>
 
 
 <!-- OCR tests -->
 
+<h2>OCR- PNG sheet music recognition</h2>
+<p>The second part of this library consist in an OCR engine for garrapatea PNG generator.</p>
+<p>The future of this lib is to recognize any PNG sheet music, write its notes in a midi for the reproduction on a web-site.</p>
 
+<div id="pngGarrapateaNegras"><img src="files/negras.png"></div>
 
 </body>
 </html>
