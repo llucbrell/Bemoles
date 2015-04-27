@@ -7,13 +7,19 @@
 
 <script src="libs/vexflow-min.js"></script>
 <script src="libs/jquery.js"></script>
+
+<!--midiBemoles library (midi to canvas sheet music)-->
 <script src="libs/midibemoles/cargabemoles.js"></script>
 <script src="libs/midibemoles/eventhandler.js"></script>
 <script src="libs/midibemoles/drawbemoles.js"></script>
 <script src="libs/midibemoles/nuevocompasb.js"></script>
 <script src="libs/midibemoles/pintanotas.js"></script>
 <script src="libs/midibemoles/play.js"></script>
-<!--jasmid lib-->
+<!-- pngBemoles library (png to midi support) -->
+<script src="libs/pngbemoles/OCRinit.js"></script>
+
+
+<!--jasmid lib, on charge of reproduction midi-->
 <script src="libs/audio.js"></script>
 <script src="libs/replayer.js"></script>
 <script src="libs/synth.js"></script>
@@ -93,9 +99,14 @@ midiBemoles('files/prueba6.mid', 'testalterednotes', 1);
 
 <h2>OCR- PNG sheet music recognition</h2>
 <p>The second part of this library consist in an OCR engine for garrapatea PNG generator.</p>
-<p>The future of this lib is to recognize any PNG sheet music, write its notes in a midi for the reproduction on a web-site.</p>
+<p>The future of this lib is to recognize any PNG sheet music and produce its online music for every web-site.</p>
 
-<div id="pngGarrapateaNegras"><img src="files/negras.png"></div>
+<h3>Garrapatea quarter notes recognition</h3>
+<script type="text/javascript">
+pngBemoles("files/negras.png","pngNegras", 0);
+</script>
+
+<div id="pngNegras"></div>
 
 </body>
 </html>
